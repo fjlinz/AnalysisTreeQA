@@ -7,7 +7,7 @@
 
 using namespace AnalysisTree;
 
-void example(const std::string& filelist = "/home/vklochkov/Soft/AnalysisTreeQA/examples/data/filelist.txt"){
+void example(const std::string& filelist){
   auto* man = TaskManager::GetInstance();
 
   auto* task = new QA::Task;
@@ -48,6 +48,14 @@ void example(const std::string& filelist = "/home/vklochkov/Soft/AnalysisTreeQA/
 }
 
 int main(int argc, char* argv[]){
-  example();
+    if (argc < 2) {
+    std::cout << "Error! Please use " << std::endl;
+    std::cout << " ./example filename" << std::endl;
+    exit(EXIT_FAILURE);
+  }
+
+  const std::string filename = argv[1];
+  example(filename);
+  
   return 0;
 }
