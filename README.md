@@ -1,11 +1,10 @@
 # AnalysisTreeQA
-[![Build Status](https://travis-ci.com/HeavyIonAnalysis/AnalysisTreeQA.svg?branch=master)](https://travis-ci.com/HeavyIonAnalysis/AnalysisTreeQA)
+![Workflow status](https://github.com/HeavyIonAnalysis/AnalysisTreeQA/workflows/CMake/badge.svg)
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/HeavyIonAnalysis/AnalysisTreeQA?sort=semver)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/HeavyIonAnalysis/AnalysisTreeQA)
 
 ## Doxygen documentation:
 
-TO BE ADDED
 https://heavyionanalysis.github.io/AnalysisTreeQA/
 
 ## General information
