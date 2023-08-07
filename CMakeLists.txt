@@ -32,9 +32,7 @@ if (CMAKE_BUILD_TYPE MATCHES DEBUG)
     set(CMAKE_VERBOSE_MAKEFILE ON)
 endif ()
 
-if(CMAKE_CXX_STANDARD LESS 17)
-    find_package(Boost REQUIRED)
-endif()
+find_package(Boost REQUIRED)
 
 if(Boost_FOUND)
     message(STATUS "Boost version ${Boost_VERSION_STRING} is found!")
@@ -74,6 +72,10 @@ if(AnalysisTreeQA_BUILD_TESTS)
     enable_testing()
     add_subdirectory(test)
 endif()
+
+#Framework to RunAnalysisTreeQA
+add_subdirectory(app)
+add_subdirectory(steer)
 
 configure_file(cmake_modules/AnalysisTreeQAConfig.sh.in ${CMAKE_BINARY_DIR}/AnalysisTreeQAConfig.sh)
 

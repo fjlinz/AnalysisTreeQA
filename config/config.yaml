@@ -1,0 +1,17 @@
+## global settings
+global:
+        rootinstall: /cvmfs/cbm.gsi.de/debian10/cbmroot/feb23_fr_v18.6.7_fs_apr21p2/bin/CbmRootConfig.sh   # point to your root installation (currently don't use fr_18.0.0)
+        outdir: at_qa
+        runQA: true
+        overwrite: true
+
+## settings for the AnalysisTreeQA
+qa:
+        inputfolder: /lustre/cbm/users/fkornas/mc/out
+        nFiles: 1
+        nEvents: 10
+        outfilename: atqa   # .root is added automatically
+
+## Tasks to be added to QA
+task:
+        default: true

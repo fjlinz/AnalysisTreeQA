@@ -1,0 +1,69 @@
+## global settings
+global:
+        rootinstall: /cvmfs/cbm.gsi.de/debian10/cbmroot/feb23_fr_v18.6.7_fs_apr21p2/bin/CbmRootConfig.sh   # point to your root installation (currently don't use fr_18.0.0)
+        outdir: at_qa
+        runQA: true
+        overwrite: true
+        file1:
+        file2: 
+        fileM: f1, f2, ..
+
+# settings for the CbmAnalysisTreeQA
+qa:
+        inputfolder: /lustre/cbm/users/fkornas/mc/out
+        nFiles: 1
+        nEvents: 10
+        outfilename: atqa   # .root is added automatically
+
+## Tasks to be added to QA
+task:
+        default: true
+
+## file1 - list of all possible objects
+object:
+        name:
+ ##             Type            TitleX          TitleY        
+                titleX:
+                titleY:
+                bins:
+
+
+## file2 - list of all possible selection criteria
+#       global: applied to all histograms (event/particle)
+#       local: only applied to specified histogram
+selection:
+        name1:
+                type: #RangeCut, ...
+                value: 
+
+
+# fileM: object & cut combinations
+objectselectioncombination:
+        cutname: #from the list of cuts; {cutnameX, cutnameY} for 2D
+                objectlist1: #define type here (H1, H2, Profile); list of objects {object1, object2}
+                objectlist2: 
+
+
+# file 0 - steering yaml with all input/config/output settings
+#
+#
+#
+# Safety checks:
+# (1) Check if all branches defined in file1 are existing
+# (2) Same for file2 (selections)
+# (3) in multiple files: check that defined names (selection, object) are existing in file(2,1)
+# If fail: stop execution // add later on when switching to yaml
+#
+# Execution:
+# (1) Create objects+selections as defined in fileM via loop over list of cuts 
+#
+# Task order:
+# (-1) Remove all cbmroot dependencies
+# (0) Container of meta data for objects/cuts (2 header files): Meta_Object, Meta_Selection
+# (1) Header to declare meta data of histogram (as currently in TaskFactory.cxx) => Use container (0) to fill with needed information (for now this is the place were variables should be hard-coded)
+# (2) Same for cuts
+# -- TaskFactory: Define task by amout of fileMs
+# (3) Main user defined execution: read input configuration, first as default via header later from config (later fileM) and declare histograms
+#       AddH1 calls: arguments taken from (0)
+#
+#
